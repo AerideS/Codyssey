@@ -1,0 +1,26 @@
+$ docker inspect --format '{{.State.Status}}' codyssey-e1-1-check-web
+running
+[exit=0]
+
+$ docker inspect --format '{{.State.Status}}' codyssey-e1-1-check-bind
+running
+[exit=0]
+
+$ docker inspect --format '{{.State.Status}}' codyssey-e1-1-check-ubuntu
+exited
+[exit=0]
+
+$ curl --fail --silent --show-error -o /dev/null -w '%{http_code}
+' http://localhost:18080
+200
+[exit=0]
+
+$ curl --fail --silent --show-error -o /dev/null -w '%{http_code}
+' http://localhost:18081
+200
+[exit=0]
+
+$ docker run --rm --mount type=volume,source=codyssey-e1-1-check-data,target=/data,readonly ubuntu:22.04 bash -lc 'cat /data/hello.txt; sha256sum /data/hello.txt'
+Codyssey persistent data
+1d027d4b5855a127b16fc4fdf6012f2e99862bf8f7ded981f09402fd87f441f2  /data/hello.txt
+[exit=0]

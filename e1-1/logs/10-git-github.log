@@ -1,0 +1,31 @@
+$ git config --global --list
+user.email=<이메일 마스킹>
+user.name=AerideS
+init.defaultbranch=main
+[exit=0]
+
+$ git remote -v
+origin	https://github.com/AerideS/Codyssey.git (fetch)
+origin	https://github.com/AerideS/Codyssey.git (push)
+[exit=0]
+
+$ git branch --show-current
+main
+[exit=0]
+
+$ git log -1 '--format=%h %s'
+05e8c5e Update link format in README.md
+[exit=0]
+
+$ git ls-remote origin refs/heads/main
+05e8c5e92759b9d501c228ace807a3978048df85	refs/heads/main
+[exit=0]
+
+$ bash -o pipefail -c 'curl --fail --silent --show-error https://api.github.com/repos/AerideS/Codyssey | python -c '"'"'import json,sys; d=json.load(sys.stdin); print(json.dumps({k:d[k] for k in ["full_name","private","default_branch","html_url"]}, indent=2))'"'"''
+{
+  "full_name": "AerideS/Codyssey",
+  "private": false,
+  "default_branch": "main",
+  "html_url": "https://github.com/AerideS/Codyssey"
+}
+[exit=0]

@@ -1,0 +1,74 @@
+$ pwd
+/home/oem/Desktop/lgh/Codyssey/e1-1
+[exit=0]
+
+$ ls -la
+total 52
+drwxrwxr-x 6 oem oem  4096 Nov  2 15:16 .
+drwxrwxr-x 7 oem oem  4096 Nov  2 15:16 ..
+-rw-rw-r-- 1 oem oem    28 Nov  2 15:16 .dockerignore
+-rw-rw-r-- 1 oem oem  1024 Nov  2 13:08 .e1-1.md.swp
+-rw-rw-r-- 1 oem oem   188 Nov  2 12:56 Dockerfile
+drwxrwxr-x 3 oem oem  4096 Nov  2 13:02 app
+-rw-rw-r-- 1 oem oem 15615 Nov  2 14:55 e1-1.md
+drwxrwxr-x 2 oem oem  4096 Nov  2 15:16 logs
+drwxrwxr-x 2 oem oem  4096 Nov  2 12:51 screenshots
+drwxrwxr-x 2 oem oem  4096 Nov  2 15:16 scripts
+[exit=0]
+
+$ mkdir -p practice/terminal practice/permissions
+[exit=0]
+
+$ bash -c 'cd practice/terminal && pwd'
+/home/oem/Desktop/lgh/Codyssey/e1-1/practice/terminal
+[exit=0]
+
+$ touch empty.txt .hidden
+[exit=0]
+
+$ bash -c 'printf '"'"'Hello Codyssey CLI\n'"'"' > original.txt'
+[exit=0]
+
+$ ls -la
+total 12
+drwxr-xr-x 2 oem oem 4096 Nov  2 15:16 .
+drwxr-xr-x 4 oem oem 4096 Nov  2 15:16 ..
+-rw-r--r-- 1 oem oem    0 Nov  2 15:16 .hidden
+-rw-r--r-- 1 oem oem    0 Nov  2 15:16 empty.txt
+-rw-r--r-- 1 oem oem   19 Nov  2 15:16 original.txt
+[exit=0]
+
+$ cat original.txt
+Hello Codyssey CLI
+[exit=0]
+
+$ cp original.txt copy.txt
+[exit=0]
+
+$ mv copy.txt renamed.txt
+[exit=0]
+
+$ mkdir -p archive
+[exit=0]
+
+$ mv renamed.txt archive/renamed.txt
+[exit=0]
+
+$ cat archive/renamed.txt
+Hello Codyssey CLI
+[exit=0]
+
+$ rm archive/renamed.txt
+[exit=0]
+
+$ rmdir archive
+[exit=0]
+
+$ ls -la
+total 12
+drwxr-xr-x 2 oem oem 4096 Nov  2 15:16 .
+drwxr-xr-x 4 oem oem 4096 Nov  2 15:16 ..
+-rw-r--r-- 1 oem oem    0 Nov  2 15:16 .hidden
+-rw-r--r-- 1 oem oem    0 Nov  2 15:16 empty.txt
+-rw-r--r-- 1 oem oem   19 Nov  2 15:16 original.txt
+[exit=0]

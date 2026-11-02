@@ -1,0 +1,22 @@
+$ firefox --version
+Mozilla Firefox 158.0
+[exit=0]
+
+$ firefox --no-remote --profile /home/oem/Desktop/lgh/Codyssey/e1-1/practice/firefox-profile --width 1280 --height 900 --new-window http://localhost:18080
+$ xwininfo -root -tree
+
+xwininfo: Window id: 0x50d (the root window) (has no name)
+
+  Root window id: 0x50d (the root window) (has no name)
+  Parent window id: 0x0 (none)
+     2 children:
+     0x200003 "Codyssey E1-1 — Mozilla Firefox": ("Navigator" "firefox_firefox")  1280x900+0+0  +0+0
+        2 children:
+        0x200010 (has no name): ()  1280x900+0+0  +0+0
+        0x200004 (has no name): ()  1x1+-1+-1  +-1+-1
+     0x200001 "Firefox": ("firefox_firefox" "Firefox_firefox")  10x10+10+10  +10+10
+
+[exit=0]
+
+$ scrot /home/oem/Desktop/lgh/Codyssey/e1-1/screenshots/web-18080.png
+[exit=0]

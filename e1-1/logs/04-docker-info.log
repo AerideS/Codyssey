@@ -1,0 +1,89 @@
+$ docker --version
+Docker version 29.9.1, build dfc520d
+[exit=0]
+
+$ docker info
+Client: Docker Engine - Community
+ Version:    29.9.1
+ Context:    default
+ Debug Mode: true
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.38.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.6.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 46
+  Running: 11
+  Paused: 0
+  Stopped: 35
+ Images: 141
+ Server Version: 29.9.1
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /run/cdi
+ Discovered Devices:
+  cdi: nvidia.com/gpu=0
+  cdi: nvidia.com/gpu=1
+  cdi: nvidia.com/gpu=2
+  cdi: nvidia.com/gpu=3
+  cdi: nvidia.com/gpu=GPU-1691b030-4785-b4c5-4cd2-415b557f6494
+  cdi: nvidia.com/gpu=GPU-2ff8884e-b9e4-1284-1e3a-7d92f0240de3
+  cdi: nvidia.com/gpu=GPU-4af89f94-8081-d9d8-1c2d-37f72cdec6de
+  cdi: nvidia.com/gpu=GPU-99ffa44b-30bf-d220-0910-38ecd3aba5a6
+  cdi: nvidia.com/gpu=all
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+ runc version: v1.5.2-0-g29dd3dc2
+ init version: de40ad0
+ Security Options:
+  apparmor
+   Profile: default
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 5.15.0-186-generic
+ Operating System: Ubuntu 22.04.5 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 32
+ Total Memory: 188.5GiB
+ Name: sqplab-server
+ ID: 7188d8e9-8d2c-41c8-b676-7a4e58527b84
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+  File Descriptors: 160
+  Goroutines: 175
+  System Time: 2026-11-02T15:17:41.643923766+09:00
+  EventsListeners: 0
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+  ::1/128
+ Live Restore Enabled: false
+ Default Address Pools:
+   Base: 172.28.0.0/14, Size: 24
+ Firewall Backend: iptables
+  EnableUserlandProxy: true
+  UserlandProxyPath: /usr/bin/docker-proxy
+
+[exit=0]

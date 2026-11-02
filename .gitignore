@@ -1,0 +1,13 @@
+# Local SSH credentials
+/github_key
+/github_key.pub
+
+# Editor temporary files
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+
+# Files created by the E1-1 terminal exercises
+/e1-1/practice/

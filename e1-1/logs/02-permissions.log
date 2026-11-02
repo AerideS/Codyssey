@@ -1,0 +1,45 @@
+$ bash -c 'printf '"'"'permission practice\n'"'"' > sample.txt'
+[exit=0]
+
+$ mkdir -p sample-dir
+[exit=0]
+
+$ chmod 600 sample.txt
+[exit=0]
+
+$ chmod 700 sample-dir
+[exit=0]
+
+$ stat -c '%a %A %n' sample.txt sample-dir
+600 -rw------- sample.txt
+700 drwx------ sample-dir
+[exit=0]
+
+$ chmod 644 sample.txt
+[exit=0]
+
+$ chmod 755 sample-dir
+[exit=0]
+
+$ stat -c '%a %A %n' sample.txt sample-dir
+644 -rw-r--r-- sample.txt
+755 drwxr-xr-x sample-dir
+[exit=0]
+
+$ chmod 000 sample.txt
+[exit=0]
+
+$ cat sample.txt
+cat: sample.txt: Permission denied
+[exit=1]
+
+$ stat -c '%a %A %n' sample.txt
+0 ---------- sample.txt
+[exit=0]
+
+$ chmod 644 sample.txt
+[exit=0]
+
+$ cat sample.txt
+permission practice
+[exit=0]

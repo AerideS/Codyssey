@@ -1,0 +1,45 @@
+$ docker volume create codyssey-e1-1-check-data
+codyssey-e1-1-check-data
+[exit=0]
+
+$ docker run -d --name codyssey-e1-1-check-vol-before --mount type=volume,source=codyssey-e1-1-check-data,target=/data ubuntu:22.04 sleep infinity
+be762b68270fbb0ee2d7f03a15e9f6b1aadde979354335406a2f19a3deab33cd
+[exit=0]
+
+$ docker exec codyssey-e1-1-check-vol-before bash -lc 'printf '"'"'Codyssey persistent data\n'"'"' > /data/hello.txt; cat /data/hello.txt; sha256sum /data/hello.txt'
+Codyssey persistent data
+1d027d4b5855a127b16fc4fdf6012f2e99862bf8f7ded981f09402fd87f441f2  /data/hello.txt
+[exit=0]
+
+$ docker stop codyssey-e1-1-check-vol-before
+codyssey-e1-1-check-vol-before
+[exit=0]
+
+$ docker rm codyssey-e1-1-check-vol-before
+codyssey-e1-1-check-vol-before
+[exit=0]
+
+$ docker ps -a --filter name=codyssey-e1-1-check-vol-before
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[exit=0]
+
+$ docker run -d --name codyssey-e1-1-check-vol-after --mount type=volume,source=codyssey-e1-1-check-data,target=/data ubuntu:22.04 sleep infinity
+bf99e39e7fd09da5305987d68b6c8ce3d1b0979c96d22156183faf66140715e4
+[exit=0]
+
+$ docker exec codyssey-e1-1-check-vol-after bash -lc 'cat /data/hello.txt; sha256sum /data/hello.txt'
+Codyssey persistent data
+1d027d4b5855a127b16fc4fdf6012f2e99862bf8f7ded981f09402fd87f441f2  /data/hello.txt
+[exit=0]
+
+$ docker volume inspect --format '{{.Name}} {{.Driver}} {{.Scope}}' codyssey-e1-1-check-data
+codyssey-e1-1-check-data local local
+[exit=0]
+
+$ docker stop codyssey-e1-1-check-vol-after
+codyssey-e1-1-check-vol-after
+[exit=0]
+
+$ docker rm codyssey-e1-1-check-vol-after
+codyssey-e1-1-check-vol-after
+[exit=0]

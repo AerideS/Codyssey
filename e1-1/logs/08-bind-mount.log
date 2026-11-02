@@ -1,0 +1,55 @@
+$ mkdir -p practice/bind-site
+[exit=0]
+
+$ cp app/index.html practice/bind-site/index.html
+[exit=0]
+
+$ docker run -d --name codyssey-e1-1-check-bind -p 127.0.0.1:18081:80 --mount type=bind,source=/home/oem/Desktop/lgh/Codyssey/e1-1/practice/bind-site,target=/usr/share/nginx/html,readonly codyssey-e1-1-web:verified
+11793bf72ddee735d525c605e71386c7a44c58b4dda23e6e2e138a7d24efe9de
+[exit=0]
+
+$ docker port codyssey-e1-1-check-bind
+80/tcp -> 127.0.0.1:18081
+[exit=0]
+
+$ curl --fail --silent --show-error http://localhost:18081
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codyssey E1-1</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #101827;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        h1 { color: #38bdf8; }
+    </style>
+</head>
+<body>
+    <h1>Codyssey E1-1</h1>
+    <h2>Docker Web Server</h2>
+    <p>NGINX container is running successfully!</p>
+</body>
+</html>
+[exit=0]
+
+$ bash -c 'printf '"'"'<h1>Codyssey bind mount UPDATED</h1>\n'"'"' > practice/bind-site/index.html'
+[exit=0]
+
+$ cat practice/bind-site/index.html
+<h1>Codyssey bind mount UPDATED</h1>
+[exit=0]
+
+$ curl --fail --silent --show-error http://localhost:18081
+<h1>Codyssey bind mount UPDATED</h1>
+[exit=0]
+
+$ docker inspect --format '{{.Id}} {{.State.StartedAt}} {{range .Mounts}}{{.Type}} {{.RW}}{{end}}' codyssey-e1-1-check-bind
+11793bf72ddee735d525c605e71386c7a44c58b4dda23e6e2e138a7d24efe9de 2026-11-02T06:18:06.145004504Z bind false
+[exit=0]

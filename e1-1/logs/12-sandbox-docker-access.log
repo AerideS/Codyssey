@@ -1,0 +1,24 @@
+$ id
+uid=1000(oem) gid=1000(oem) groups=1000(oem),65534(nogroup)
+[exit=0]
+
+$ ls -l /var/run/docker.sock
+srw-rw---- 1 nobody nogroup 0 Oct 15 21:25 /var/run/docker.sock
+[exit=0]
+
+$ docker info
+Client: Docker Engine - Community
+ Version:    29.9.1
+ Context:    default
+ Debug Mode: true
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.38.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.6.0
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+permission denied while trying to connect to the docker API at unix:///var/run/docker.sock
+[exit=1]

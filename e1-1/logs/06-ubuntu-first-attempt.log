@@ -1,0 +1,47 @@
+$ docker pull ubuntu:22.04
+22.04: Pulling from library/ubuntu
+0626d3cc316c: Pulling fs layer
+0626d3cc316c: Verifying Checksum
+0626d3cc316c: Download complete
+0626d3cc316c: Pull complete
+Digest: sha256:076e7bf82319619f28dd0aa9c02ab34b055ad37100395b4f49a2ffba04fb5e11
+Status: Downloaded newer image for ubuntu:22.04
+docker.io/library/ubuntu:22.04
+[exit=0]
+
+$ docker run -dit --name codyssey-e1-1-check-ubuntu ubuntu:22.04 bash
+6e63a25be04df15dbabfd5f7fbbe025e909bb0a3c73e24862ed864661bbe8dce
+[exit=0]
+
+$ docker exec -it codyssey-e1-1-check-ubuntu bash
+root@6e63a25be04d:/# echo 'Hello Codyssey exec'
+
+Hello Codyssey exec
+root@6e63a25be04d:/# pwd
+
+/
+root@6e63a25be04d:/# ls /
+
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@6e63a25be04d:/# exit
+
+exit
+
+[exit=0]
+
+$ docker inspect --format '{{.State.Status}}' codyssey-e1-1-check-ubuntu
+running
+[exit=0]
+
+$ docker attach codyssey-e1-1-check-ubuntu
+
+root@6e63a25be04d:/# echo 'Hello Codyssey attach'
+
+Hello Codyssey attach
+
+read escape sequence
+
+[Ctrl+P, Ctrl+Q: detach]
+
+[exit=1]

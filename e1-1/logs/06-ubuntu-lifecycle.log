@@ -1,0 +1,63 @@
+$ docker pull ubuntu:22.04
+22.04: Pulling from library/ubuntu
+Digest: sha256:076e7bf82319619f28dd0aa9c02ab34b055ad37100395b4f49a2ffba04fb5e11
+Status: Image is up to date for ubuntu:22.04
+docker.io/library/ubuntu:22.04
+[exit=0]
+
+$ docker run -dit --name codyssey-e1-1-check-ubuntu ubuntu:22.04 bash
+8cf7096835dff6adda7330b7f456400b57d12b48dc60ddb4578f5f29d2954dc3
+[exit=0]
+
+$ docker exec -it codyssey-e1-1-check-ubuntu bash
+root@8cf7096835df:/# echo 'Hello Codyssey exec'
+Hello Codyssey exec
+root@8cf7096835df:/# pwd
+/
+root@8cf7096835df:/# ls /
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@8cf7096835df:/# exit
+exit
+
+[exit=0]
+
+$ docker inspect --format '{{.State.Status}}' codyssey-e1-1-check-ubuntu
+running
+[exit=0]
+
+$ docker attach codyssey-e1-1-check-ubuntu
+root@8cf7096835df:/# echo 'Hello Codyssey attach'
+Hello Codyssey attach
+read escape sequence
+
+[Ctrl+P, Ctrl+Q: detach]
+
+[exit=1]
+
+$ docker inspect --format '{{.State.Status}}' codyssey-e1-1-check-ubuntu
+running
+[exit=0]
+
+$ docker attach codyssey-e1-1-check-ubuntu
+
+exit
+
+[exit=0]
+
+$ docker inspect --format '{{.State.Status}}' codyssey-e1-1-check-ubuntu
+exited
+[exit=0]
+
+$ docker start codyssey-e1-1-check-ubuntu
+codyssey-e1-1-check-ubuntu
+[exit=0]
+
+$ docker stop codyssey-e1-1-check-ubuntu
+codyssey-e1-1-check-ubuntu
+[exit=0]
+
+$ docker ps -a --filter name=codyssey-e1-1-check-ubuntu
+CONTAINER ID   IMAGE          COMMAND   CREATED          STATUS                                PORTS     NAMES
+8cf7096835df   ubuntu:22.04   "bash"    16 seconds ago   Exited (137) Less than a second ago             codyssey-e1-1-check-ubuntu
+[exit=0]

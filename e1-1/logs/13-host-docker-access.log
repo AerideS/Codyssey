@@ -1,0 +1,7 @@
+$ id
+uid=1000(oem) gid=1000(oem) groups=1000(oem),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),110(lxd),999(docker)
+[exit=0]
+
+$ docker info --format 'ServerVersion={{.ServerVersion}} OSType={{.OSType}}'
+ServerVersion=29.9.1 OSType=linux
+[exit=0]

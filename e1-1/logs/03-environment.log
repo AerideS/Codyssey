@@ -1,0 +1,35 @@
+$ date -Iseconds
+2026-11-02T15:16:25+09:00
+[exit=0]
+
+$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+[exit=0]
+
+$ bash -c 'printf "Shell=%s\nTERM=%s\n" "$SHELL" "$TERM"'
+Shell=/bin/bash
+TERM=dumb
+[exit=0]
+
+$ bash -c 'command -v code'
+/home/oem/.vscode-server/cli/servers/Stable-2c33b50b16c472efe58357d1d2a8a5414bc23fbf/server/bin/remote-cli/code
+[exit=0]
+
+$ docker --version
+Docker version 29.9.1, build dfc520d
+[exit=0]
+
+$ git --version
+git version 2.34.1
+[exit=0]
